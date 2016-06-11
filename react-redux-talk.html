@@ -1,0 +1,462 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/beige.css">
+        <link rel="stylesheet" href="custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+              <!-- ********************************************************************************** -->
+              <!-- Einführung in React.js und Redux -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <h1>Einführung in React.js und Redux</h1>
+                <div align="right">
+                <img width="30%" src="../logos/German.png" style="border:0"/>
+                </div>
+              </section>
+              
+              <!-- ********************************************************************************** -->
+              <!-- Überblick -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <h2>React.js</h2>
+                <h3>Eine JavaScript Library zum Erstellen von User Interfaces</h3>
+                <ul>
+                  <li>Nur die UI</li>
+                  <li>Virtual DOM</li>
+                  <li>Data Flow</li>
+                </ul>
+              </section>
+            
+              <!-- ********************************************************************************** -->
+              <!-- Data Flow -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <section>
+                <h2>Data Flow</h2>
+                  <ul>
+                    <p>Unidirektional ohne Event-Chaos</p>
+                  </ul>
+                </section>
+
+                <section>
+                  <img src="spaghetti1.jpg"/>
+                  http://www.wikihow.com/Image:Make-Spaghetti-Step-1.jpg
+                  <img src="spaghetti2.jpg"/>
+                  https://www.flickr.com/photos/spilt-milk/5829575950
+                </section>
+              
+                
+                <section>
+                  <img src="pubsub1.png"/>
+                </section>
+                <section>
+                  <img src="pubsub2.png"/>
+                </section>
+                <section>
+                  <img src="pubsub3.png"/>
+                </section>
+                
+                <section>
+                  <img src="dataflow1.png"/>
+                </section>
+                
+              </section>
+              
+              <!-- ********************************************************************************** -->
+              <!-- Virtual DOM -->
+              <!-- ********************************************************************************** -->
+              <section>
+              <section>
+                <h2>Virtual DOM</h2>
+                  <ul>
+                    <p>Effizientes UI-Rendering inklusive</p>
+                  </ul>
+              </section>
+              <section>
+                <h3>Änderungen auf der UI - was tun?</h3>
+                
+                <p>Alles neuzeichnen? Flackert!</p>
+                
+                <p>DOM manipulieren? Mühsam!</p>
+              </section>
+                <section>
+                  <h3>Virtual DOM</h3>
+                  <p>Entwickler erzeugt jedesmal das vollständige Resultat</p>
+                  <p>React aktualisiert den DOM mit minimalen Änderungen</p>
+                </section>
+              
+              </section>
+              
+              
+              <!-- ********************************************************************************** -->
+              <!-- Nur die UI -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <h2>Nur die UI</h2>
+                  <ul>
+                    <p>Model etc. kann beliebig implementiert werden</p>
+                  </ul>
+                
+              </section>
+              
+              <!-- ********************************************************************************** -->
+              <!-- Eine einfache Komponente -->
+              <!-- ********************************************************************************** -->
+
+              <section>
+                
+              <!-- Überblick -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim>
+import React, { Component } from "react";
+
+class HelloWorld extends Component {
+
+  render() {
+    return <p>Hello World!</p>;
+  }
+}
+                </code></pre>
+                </section>
+
+              <!-- Import -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim data-noescape>
+<mark>import React, { Component } from "react";</mark>
+
+class HelloWorld extends Component {
+
+  render() {
+    return &lt;p>Hello World!&lt;/p>;
+  }
+}
+                </code></pre>
+                </section>
+
+              <!-- Klasse -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim data-noescape>
+import React, { Component } from "react";
+
+<mark>class HelloWorld extends Component</mark> {
+
+  render() {
+    return &lt;p>Hello World!&lt;/p>;
+  }
+}
+                </code></pre>
+                </section>
+                
+              <!-- Render -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim data-noescape>
+import React, { Component } from "react";
+
+class HelloWorld extends Component {
+
+  <mark>render()</mark> {
+    return &lt;p>Hello World!&lt;/p>;
+  }
+}
+                </code></pre>
+                </section>
+                
+              <!-- JSX -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim data-noescape>
+import React, { Component } from "react";
+
+class HelloWorld extends Component {
+
+  render() {
+    return <mark>&lt;p>Hello World!&lt;/p></mark>;
+  }
+}
+                </code></pre>
+                </section>
+                
+              <!-- Desugared -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim data-noescape>
+import React, { Component } from "react";
+
+class HelloWorld extends Component {
+
+  render() {
+    return <mark>React.createElement('p', null, 'Hello World!')</mark>;
+  }
+}
+                </code></pre>
+                </section>
+                
+
+              <!-- -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                
+                Implementierung:
+                
+                <pre><code data-trim>
+import React, { Component } from "react";
+
+class HelloWorld extends Component {
+
+  render() {
+    return <p>Hello World!</p>;
+  }
+}
+                </code></pre>
+                </section>
+                
+                
+              <!-- -------------------------------------------------------------- -->
+                <section>
+                Verwendung:
+                
+                <pre><code data-trim>
+&lt;HelloWorld />
+                </code></pre>
+
+              </section>
+
+                
+              
+              </section>
+              
+          
+          
+              <!-- ********************************************************************************** -->
+              <!-- Eine einfache Komponente -->
+              <!-- ********************************************************************************** -->
+
+              <!--
+
+                Komponente
+                Internal State
+
+              -->
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <!-- ********************************************************************************** -->
+              <!-- Einführung in ES 6 -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <h1>Einführung in ECMAScript 6</h1>
+              </section>
+              <!-- http://es6katas.org/ -->
+              <!-- let / const ********************************************************************************** -->
+              <section>
+                <!-- ------------------------------------------------- -->
+                <section>
+                  <h2>let / const</h2>
+                  <ul>
+                    <li><code>const</code>: Konstantendeklaration</li>
+                    <li><code>let</code>: (endlich) block-scoped und nicht mehr function-scoped</li>
+                  </ul>
+                </section>
+                <!-- ------------------------------------------------- -->
+                <section>
+                  <pre><code data-trim>
+function multiply (input) {
+  if (true) {
+    var number = 5;
+  }
+  return number * input;
+}
+                  </code></pre>
+                  
+                  <pre>
+multiply (3)
+
+<span class="fragment" data-fragment-index="1">15</span>
+                  </pre>
+                  
+                  <span class="fragment" data-fragment-index="2">
+                  <pre><code data-trim>
+function multiply (input) {
+  if (true) {
+    let number = 5;
+  }
+  return number * input;
+}
+                  </code></pre>
+                  
+                  <pre>
+multiply (3)
+
+<span class="fragment" data-fragment-index="3" style="color: red">Uncaught ReferenceError: number is not defined(…)</span>
+                  </pre>
+                  </span>
+                </section>              
+                <!-- ------------------------------------------------- -->
+                <section>
+                  <h2>Übungen</h2>
+                  <ul>
+                  <li><a href="http://tddbin.com/#?kata=es6/language/block-scoping/let">let</a></li>
+                  <li><a href="http://tddbin.com/#?kata=es6/language/block-scoping/const">const</a></li>
+                  </ul>
+                </section>
+              </section>
+
+              <!-- Default Parameters ********************************************************* -->
+
+              <!-- Destructuring: Object, Array, Parameters, Assign ********************************************************* -->
+              <!-- Spread Operator ****************************************************************************** -->
+
+              <!-- Arrow Functions ************************************************************************ -->
+
+              <!-- Neue Array-Funktionen: map, fold, filter *************************************************** -->
+
+              
+              <!-- Modules ******************************************************************************** -->
+
+              <!-- Class ********************************************************************************** -->
+              <section>
+                <!-- ------------------------------------------------- -->
+                <section>
+                  <h2>Class</h2>
+                  
+                </section>
+              </section>
+              
+              <!-- Class: this-Binding von Funktionen ************************************************************** -->
+
+              <!-- ********************************************************************************** -->
+              <!-- Einführung in React -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <h1>Einführung in React</h1>
+              </section>
+
+              <!-- Setting up Babel ************************************************************************** -->
+              
+              <!-- Setting Up Webpack ************************************************************************ -->
+              
+              <!-- ********************************************************************************** -->
+              <!-- Einführung in Redux -->
+              <!-- ********************************************************************************** -->
+              <section>
+                <h1>Einführung in Redux</h1>
+              </section>
+
+
+              <!-- Danksagung ********************************************************************************** -->
+              <section>
+                <h2>Vielen Dank an:</h2>
+                <ul>
+                  <li><a href="http://ccoenraets.github.io/es6-tutorial/">Christophe Coenraets</a></li>
+                  <li><a href="http://es6katas.org/">Wolfram Kriesing</a></li>
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
+                </ul>
+              </section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+              // ********************* General **************************
+              // Display a presentation progress bar
+              progress: true,
+
+              history: false, // TODO ?!
+              
+              // Enable keyboard shortcuts for navigation
+              keyboard: true,
+
+              // Enable the slide overview mode
+              overview: true,
+
+              // Vertical centering of slides
+              center: true,
+              
+              // Transition style
+              transition: 'fade', // none/fade/slide/convex/concave/zoom / default
+
+              // ********************* Size **************************
+
+              // The "normal" size of the presentation, aspect ratio will be preserved
+              // when the presentation is scaled to fit different resolutions. Can be
+              // specified using percentage units.
+              width: 1024,
+              height: 768,
+
+              // Factor of the display size that should remain empty around the content
+              margin: 0.05,
+
+              
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
