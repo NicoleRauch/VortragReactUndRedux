@@ -8,10 +8,12 @@
 
 		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../reveal.js/css/theme/beige.css">
-        <link rel="stylesheet" href="custom.css">
 
-		<!-- Theme used for syntax highlighting of code -->
+		<!-- Theme used for syntax highlighting of code 
 		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+-->
+        <link rel="stylesheet" href="default-highlight.css">
+        <link rel="stylesheet" href="custom.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -261,14 +263,151 @@ class HelloWorld extends Component {
                 <pre><code data-trim>
 &lt;HelloWorld />
                 </code></pre>
-
               </section>
 
+              </section>
+              
+
+              <!-- ********************************************************************************** -->
+              <!-- Eine Komponente mit Daten -->
+              <!-- ********************************************************************************** -->
+
+              <section>
                 
-              
+              <!-- Überblick -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine Komponente mit Daten</h2>
+
+                <pre><code data-trim>
+class User extends Component {
+
+  render() {
+    return <li>
+      <span>{this.props.user.firstName} {this.props.user.lastName}</span>
+    </li>;
+  }
+}
+                </code></pre>
+                </section>
+
+              <!-- Props -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine Komponente mit Daten</h2>
+
+                <pre><code data-trim data-noescape>
+class User extends Component {
+
+  render() {
+    return &lt;li>
+      &lt;span><mark>{this.props.user.firstName} {this.props.user.lastName}</mark>&lt;/span>
+    &lt;/li>;
+  }
+}
+                </code></pre>
               </section>
-              
-          
+
+              <!-- Verwendung -------------------------------------------------------------- -->
+              <section>
+                <h2>Verwendung</h2>
+
+                <pre><code data-trim>
+<ul>
+  { users.map((user, index) => &lt;User user={user} key={"user_" + index} />) }
+</ul>
+                </code></pre>
+              </section>
+                
+                
+              <!-- users list -------------------------------------------------------------- -->
+              <section>
+                <h2>Verwendung</h2>
+
+                <pre><code data-trim data-noescape>
+&lt;ul>
+  { <mark>users</mark>.map((user, index) => &lt;User user={user} key={"user_" + index} />) }
+&lt;/ul>
+                </code></pre>
+              </section>
+                
+              <!-- map over users list -------------------------------------------------------------- -->
+              <section>
+                <h2>Verwendung</h2>
+
+                <pre><code data-trim data-noescape>
+&lt;ul>
+  { users.<mark>map((user, index)</mark> => &lt;User user={user} key={"user_" + index} /><mark>)</mark> }
+&lt;/ul>
+                </code></pre>
+              </section>
+                
+              <!-- User component -------------------------------------------------------------- -->
+              <section>
+                <h2>Verwendung</h2>
+
+                <pre><code data-trim data-noescape>
+&lt;ul>
+  { users.map((user, index) => <mark>&lt;User</mark> user={user} key={"user_" + index} <mark>/></mark>) }
+&lt;/ul>
+                </code></pre>
+              </section>
+                
+              <!-- user prop -------------------------------------------------------------- -->
+              <section>
+                <h2>Verwendung</h2>
+
+                <pre><code data-trim data-noescape>
+&lt;ul>
+  { users.map((user, index) => &lt;User <mark>user={user}</mark> key={"user_" + index} />) }
+&lt;/ul>
+                </code></pre>
+              </section>
+                
+              <!-- key prop -------------------------------------------------------------- -->
+              <section>
+                <h2>Verwendung</h2>
+
+                <pre><code data-trim data-noescape>
+&lt;ul>
+  { users.map((user, index) => &lt;User user={user} <mark>key={"user_" + index}</mark> />) }
+&lt;/ul>
+                </code></pre>
+              </section>
+
+              </section>
+              <!-- ********************************************************************************** -->
+              <!-- Anlegen eines Benutzers -->
+              <!-- ********************************************************************************** -->
+
+              <section>
+                
+              <!-- Überblick -------------------------------------------------------------- -->
+              <section>
+                <h2>Anlegen eines Benutzers</h2>
+
+                <pre><code data-trim>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      <div>
+        <div>User Creation</div>
+        <div>
+          <label>Vorname:</label>
+          <input type="string" />
+        </div>
+        <div>
+          <label>Nachname:</label>
+          <input type="string" />
+        </div>
+        <div>
+          <button onClick={ /* ... */}>Submit</button>
+        </div>
+      </div>
+    );
+  }
+}
+                </code></pre>
+                </section>
           
               <!-- ********************************************************************************** -->
               <!-- Eine einfache Komponente -->
