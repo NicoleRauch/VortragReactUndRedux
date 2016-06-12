@@ -384,41 +384,121 @@ class User extends Component {
               <section>
                 <h2>Anlegen eines Benutzers</h2>
 
-                <pre><code data-trim>
+                <pre><code data-trim data-noescape>
 class UserCreation extends Component {
 
   render() {
     return (
-      <div>
-        <div>User Creation</div>
-        <div>
-          <label>Vorname:</label>
-          <input type="string" />
-        </div>
-        <div>
-          <label>Nachname:</label>
-          <input type="string" />
-        </div>
-        <div>
-          <button onClick={ /* ... */}>Submit</button>
-        </div>
-      </div>
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;button onClick={ /* ... */ }>Submit&lt;/button> &lt;/div>
+      &lt;/div>
     );
   }
 }
                 </code></pre>
                 </section>
-          
+
+                
+              <!-- Labels -------------------------------------------------------------- -->
+              <section>
+                <h2>Anlegen eines Benutzers</h2>
+
+                <pre><code data-trim data-noescape>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> <mark>&lt;label>First Name:&lt;/label></mark> &lt;input type="string" /> &lt;/div>
+        &lt;div> <mark>&lt;label>Last Name:&lt;/label></mark> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;button onClick={ /* ... */ }>Submit&lt;/button> &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+                </code></pre>
+                </section>
+
+              <!-- Input fields -------------------------------------------------------------- -->
+              <section>
+                <h2>Anlegen eines Benutzers</h2>
+
+                <pre><code data-trim data-noescape>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> &lt;label>First Name:&lt;/label> <mark>&lt;input type="string" /></mark> &lt;/div>
+        &lt;div> &lt;label>Last Name:&lt;/label> <mark>&lt;input type="string" /></mark> &lt;/div>
+        &lt;div> &lt;button onClick={ /* ... */ }>Submit&lt;/button> &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+                </code></pre>
+                </section>
+
+                
+              <!-- Button -------------------------------------------------------------- -->
+                <section>
+                <h2>Anlegen eines Benutzers</h2>
+
+                <pre><code data-trim data-noescape>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> <mark>&lt;button onClick={ /* ... */ }>Submit&lt;/button></mark> &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+                </code></pre>
+                </section>
+                
+              </section>
+
+              <!-- ********************************************************************************** -->
+              <!-- Redux -->
+              <!-- ********************************************************************************** -->
+              <section>
+              
+                <section>
+                  <h2>React Data Flow</h2>
+                  <img src="dataflow1.png"/>
+                </section>
+
+                <section>
+                  <h2>React Data Flow</h2>
+                  <img src="dataflow2.png"/>
+                </section>
+              
+                <section>
+                  <h2>React Data Flow</h2>
+                  <img src="dataflow3.png"/>
+                </section>
+              
+                <section>
+                  <h2>Redux Data Flow</h2>
+                  <img src="dataflow4.png"/>
+                </section>
+
+              </section>
+              
               <!-- ********************************************************************************** -->
               <!-- Eine einfache Komponente -->
               <!-- ********************************************************************************** -->
 
-              <!--
-
-                Komponente
-                Internal State
-
-              -->
               
               
               
