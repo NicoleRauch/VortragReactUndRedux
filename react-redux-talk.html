@@ -496,138 +496,148 @@ class UserCreation extends Component {
               </section>
               
               <!-- ********************************************************************************** -->
+              <!-- Redux Implementierung -->
+              <!-- ********************************************************************************** -->
+              
+              <section>
+                
+                <section>
+                  <h2>State Tree</h2>
+                  
+                  <pre><code data-trim data-noescape>
+INITIAL_STATE = {
+  users: []
+};                  
+                  </code></pre>
+                </section>
+                
+                <section>
+                  <h2>Action</h2>
+                  
+                  <pre><code data-trim data-noescape>
+function addUser(user) {
+  return {
+    type: "USER_ADDED",
+    payload: user
+  }
+}
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h2>Reducers</h2>
+                  
+                  <pre><code data-trim data-noescape>
+function users(state = INITIAL_STATE.users, action = {}) {
+  switch (action.type) {
+    case Events.USER_ADDED:
+      return state.concat(action.payload);
+  }
+  return state;
+}
+
+export default combineReducers({
+  users
+});
+                  </code></pre>
+                </section>
+                
+                <section>
+                  <h2>Integration in die Komponente</h2>
+                  
+                <pre><code data-trim data-noescape>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;button onClick={ 
+            /* ... */ 
+          }>Submit&lt;/button> &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+                </code></pre>                  
+                </section>
+                
+                <section>
+                  <h2>Integration in die Komponente</h2>
+                  
+                <pre><code data-trim data-noescape>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;button onClick={ 
+            <mark>/* ... */</mark>
+          }>Submit&lt;/button> &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+                </code></pre>                  
+                </section>
+                
+                <section>
+                  <h2>Integration in die Komponente</h2>
+                  
+                <pre><code data-trim data-noescape>
+class UserCreation extends Component {
+
+  render() {
+    return (
+      &lt;div>
+        &lt;div>User Creation&lt;/div>
+        &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
+        &lt;div> &lt;button onClick={ 
+            <mark>() => { this.props.submitUser({firstName: ..., lastName: ...}) }</mark> 
+          }>Submit&lt;/button> &lt;/div>
+      &lt;/div>
+    );
+  }
+}
+                </code></pre>                  
+                </section>
+                
+                <section>
+                <h2>Verwendung</h2>
+                
+                  <pre><code data-trim data-noescape>
+&lt;UserCreation submitUser={ (user) => dispatch(Actions.addUser(user)) } />                  
+                  </code></pre>
+                </section>
+                
+              </section>
+              
+              <!-- ********************************************************************************** -->
               <!-- Eine einfache Komponente -->
               <!-- ********************************************************************************** -->
+              
 
               
               
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <!-- ********************************************************************************** -->
-              <!-- Einführung in ES 6 -->
-              <!-- ********************************************************************************** -->
-              <section>
-                <h1>Einführung in ECMAScript 6</h1>
-              </section>
-              <!-- http://es6katas.org/ -->
-              <!-- let / const ********************************************************************************** -->
-              <section>
-                <!-- ------------------------------------------------- -->
-                <section>
-                  <h2>let / const</h2>
-                  <ul>
-                    <li><code>const</code>: Konstantendeklaration</li>
-                    <li><code>let</code>: (endlich) block-scoped und nicht mehr function-scoped</li>
-                  </ul>
-                </section>
-                <!-- ------------------------------------------------- -->
-                <section>
-                  <pre><code data-trim>
-function multiply (input) {
-  if (true) {
-    var number = 5;
-  }
-  return number * input;
-}
-                  </code></pre>
-                  
-                  <pre>
-multiply (3)
-
-<span class="fragment" data-fragment-index="1">15</span>
-                  </pre>
-                  
-                  <span class="fragment" data-fragment-index="2">
-                  <pre><code data-trim>
-function multiply (input) {
-  if (true) {
-    let number = 5;
-  }
-  return number * input;
-}
-                  </code></pre>
-                  
-                  <pre>
-multiply (3)
-
-<span class="fragment" data-fragment-index="3" style="color: red">Uncaught ReferenceError: number is not defined(…)</span>
-                  </pre>
-                  </span>
-                </section>              
-                <!-- ------------------------------------------------- -->
-                <section>
-                  <h2>Übungen</h2>
-                  <ul>
-                  <li><a href="http://tddbin.com/#?kata=es6/language/block-scoping/let">let</a></li>
-                  <li><a href="http://tddbin.com/#?kata=es6/language/block-scoping/const">const</a></li>
-                  </ul>
-                </section>
-              </section>
-
-              <!-- Default Parameters ********************************************************* -->
-
-              <!-- Destructuring: Object, Array, Parameters, Assign ********************************************************* -->
-              <!-- Spread Operator ****************************************************************************** -->
-
-              <!-- Arrow Functions ************************************************************************ -->
-
-              <!-- Neue Array-Funktionen: map, fold, filter *************************************************** -->
-
-              
-              <!-- Modules ******************************************************************************** -->
-
-              <!-- Class ********************************************************************************** -->
-              <section>
-                <!-- ------------------------------------------------- -->
-                <section>
-                  <h2>Class</h2>
-                  
-                </section>
-              </section>
-              
-              <!-- Class: this-Binding von Funktionen ************************************************************** -->
-
-              <!-- ********************************************************************************** -->
-              <!-- Einführung in React -->
-              <!-- ********************************************************************************** -->
-              <section>
-                <h1>Einführung in React</h1>
-              </section>
-
-              <!-- Setting up Babel ************************************************************************** -->
-              
-              <!-- Setting Up Webpack ************************************************************************ -->
-              
-              <!-- ********************************************************************************** -->
-              <!-- Einführung in Redux -->
-              <!-- ********************************************************************************** -->
-              <section>
-                <h1>Einführung in Redux</h1>
-              </section>
-
 
               <!-- Danksagung ********************************************************************************** -->
               <section>
-                <h2>Vielen Dank an:</h2>
-                <ul>
-                  <li><a href="http://ccoenraets.github.io/es6-tutorial/">Christophe Coenraets</a></li>
-                  <li><a href="http://es6katas.org/">Wolfram Kriesing</a></li>
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                </ul>
+                <h2>Vielen Dank!</h2>
+
+                <div align="right">
+                <img width="30%" src="../logos/German.png" style="border:0"/>
+                </div>
+
+                
               </section>
+              
+              
 			</div>
 		</div>
 
