@@ -13,7 +13,7 @@ export class AppComponent extends Component {
     return (
       <div>
         <UserList users={users} />
-        <UserCreation submitUser={(user) => dispatch(Actions.addUser(user))}
+        <UserCreation submitUser={user => dispatch(Actions.addUser(user))}
         />
       </div>
     );

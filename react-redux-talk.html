@@ -138,9 +138,7 @@
               <!-- Überblick -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim>
 import React, { Component } from "react";
 
@@ -156,9 +154,7 @@ class HelloWorld extends Component {
               <!-- Import -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim data-noescape>
 <mark>import React, { Component } from "react";</mark>
 
@@ -174,9 +170,7 @@ class HelloWorld extends Component {
               <!-- Klasse -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim data-noescape>
 import React, { Component } from "react";
 
@@ -192,9 +186,7 @@ import React, { Component } from "react";
               <!-- Render -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim data-noescape>
 import React, { Component } from "react";
 
@@ -210,9 +202,7 @@ class HelloWorld extends Component {
               <!-- JSX -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim data-noescape>
 import React, { Component } from "react";
 
@@ -228,9 +218,7 @@ class HelloWorld extends Component {
               <!-- Desugared -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim data-noescape>
 import React, { Component } from "react";
 
@@ -247,9 +235,7 @@ class HelloWorld extends Component {
               <!-- -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
-                
-                Implementierung:
-                
+                                
                 <pre><code data-trim>
 import React, { Component } from "react";
 
@@ -265,7 +251,7 @@ class HelloWorld extends Component {
                 
               <!-- -------------------------------------------------------------- -->
                 <section>
-                Verwendung:
+                <h2>Eine einfache Komponente</h2>
                 
                 <pre><code data-trim>
 &lt;HelloWorld />
@@ -522,9 +508,11 @@ INITIAL_STATE = {
                   <h2>Action</h2>
                   
                   <pre><code data-trim data-noescape>
+const USER_ADDED = "USER_ADDED";                  
+                  
 function addUser(user) {
   return {
-    type: "USER_ADDED",
+    type: USER_ADDED,
     payload: user
   }
 }
@@ -619,7 +607,7 @@ class UserCreation extends Component {
                 <h2>Verwendung</h2>
                 
                   <pre><code data-trim data-noescape>
-&lt;UserCreation submitUser={ (user) => dispatch(Actions.addUser(user)) } />                  
+&lt;UserCreation submitUser={ user => dispatch(Actions.addUser(user)) } />                  
                   </code></pre>
                 </section>
                 
