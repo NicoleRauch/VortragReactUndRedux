@@ -88,6 +88,7 @@
                 </section>
                 
                 <section>
+                  <h2>React Data Flow</h2>
                   <img src="dataflow1.png"/>
                 </section>
                 
@@ -126,7 +127,7 @@
                 <h2>Nur die UI</h2>
                   <ul>
                     <p>Model ist kein Bestandteil von React</p>
-                    <p>kann beliebig implementiert werden</p>
+                    <p>Kann beliebig implementiert werden</p>
                   </ul>
                 
               </section>
@@ -137,6 +138,14 @@
 
               <section>
                 
+                
+              <!-- Im Browser -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine einfache Komponente</h2>
+                <img src="HelloWorld.png" style="border:1px solid black;"/>
+                
+              </section>
+
               <!-- Überblick -------------------------------------------------------------- -->
               <section>
                 <h2>Eine einfache Komponente</h2>
@@ -269,6 +278,15 @@ class HelloWorld extends Component {
 
               <section>
                 
+              <!-- Im Browser -------------------------------------------------------------- -->
+              <section>
+                <h2>Eine Komponente mit Daten</h2>
+                <img src="AllUsers.png" style="border:1px solid black;"/>
+                
+                <p class="fragment">Anzeige eines Users / Anzeige der Liste</p>
+              </section>
+
+                
               <!-- Überblick -------------------------------------------------------------- -->
               <section>
                 <h2>Eine Komponente mit Daten</h2>
@@ -375,6 +393,12 @@ class User extends Component {
 
               <section>
                 
+              <!-- Im Browser -------------------------------------------------------------- -->
+              <section>
+                <h2>Anlegen eines Benutzers</h2>
+                <img src="UserCreation.png" style="border:1px solid black;"/>
+              </section>
+                
               <!-- Überblick -------------------------------------------------------------- -->
               <section>
                 <h2>Anlegen eines Benutzers</h2>
@@ -385,7 +409,7 @@ class UserCreation extends Component {
   render() {
     return (
       &lt;div>
-        &lt;div>User Creation&lt;/div>
+        &lt;div>New User&lt;/div>
         &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
         &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
         &lt;div> &lt;button onClick={ /* ... */ }>Submit&lt;/button> &lt;/div>
@@ -407,7 +431,7 @@ class UserCreation extends Component {
   render() {
     return (
       &lt;div>
-        &lt;div>User Creation&lt;/div>
+        &lt;div>New User&lt;/div>
         &lt;div> <mark>&lt;label>First Name:&lt;/label></mark> &lt;input type="string" /> &lt;/div>
         &lt;div> <mark>&lt;label>Last Name:&lt;/label></mark> &lt;input type="string" /> &lt;/div>
         &lt;div> &lt;button onClick={ /* ... */ }>Submit&lt;/button> &lt;/div>
@@ -428,7 +452,7 @@ class UserCreation extends Component {
   render() {
     return (
       &lt;div>
-        &lt;div>User Creation&lt;/div>
+        &lt;div>New User&lt;/div>
         &lt;div> &lt;label>First Name:&lt;/label> <mark>&lt;input type="string" /></mark> &lt;/div>
         &lt;div> &lt;label>Last Name:&lt;/label> <mark>&lt;input type="string" /></mark> &lt;/div>
         &lt;div> &lt;button onClick={ /* ... */ }>Submit&lt;/button> &lt;/div>
@@ -450,7 +474,7 @@ class UserCreation extends Component {
   render() {
     return (
       &lt;div>
-        &lt;div>User Creation&lt;/div>
+        &lt;div>New User&lt;/div>
         &lt;div> &lt;label>First Name:&lt;/label> &lt;input type="string" /> &lt;/div>
         &lt;div> &lt;label>Last Name:&lt;/label> &lt;input type="string" /> &lt;/div>
         &lt;div> <mark>&lt;button onClick={ /* ... */ }>Submit&lt;/button></mark> &lt;/div>
@@ -460,6 +484,13 @@ class UserCreation extends Component {
 }
                 </code></pre>
                 </section>
+                
+              <!-- Im Browser -------------------------------------------------------------- -->
+              <section>
+                <h2>Die gesamte Applikation</h2>
+                <img src="FullApplication.png"/>
+              </section>
+                
                 
               </section>
 
@@ -474,17 +505,17 @@ class UserCreation extends Component {
                 </section>
 
                 <section>
-                  <h2>React Data Flow</h2>
+                  <h2>&nbsp;</h2>
                   <img src="dataflow2.png"/>
                 </section>
               
                 <section>
-                  <h2>React Data Flow</h2>
+                  <h2>&nbsp;</h2>
                   <img src="dataflow3.png"/>
                 </section>
               
                 <section>
-                  <h2>Redux Data Flow</h2>
+                  <h2 class="fragment">Redux Data Flow</h2>
                   <img src="dataflow4.png"/>
                 </section>
 
@@ -497,17 +528,7 @@ class UserCreation extends Component {
               <section>
                 
                 <section>
-                  <h2>State Tree</h2>
-                  
-                  <pre><code data-trim data-noescape>
-INITIAL_STATE = {
-  users: []
-};                  
-                  </code></pre>
-                </section>
-                
-                <section>
-                  <h2>Action</h2>
+                  <h3>Action</h3>
                   
                   <pre><code data-trim data-noescape>
 const USER_ADDED = "USER_ADDED";                  
@@ -519,12 +540,31 @@ function addUser(user) {
   }
 }
                   </code></pre>
+                  
+                  <p class="fragment">Sehr ähnlich zu CQRS / Event Sourcing</p>
                 </section>
 
                 <section>
-                  <h2>Reducers</h2>
+                  <h3>State Tree</h3>
                   
                   <pre><code data-trim data-noescape>
+INITIAL_STATE = {
+  users: []
+};                  
+                  </code></pre>
+
+                  <div class="fragment">
+                  <h3>Reducers</h3>
+                  <pre><code data-trim data-noescape>
+function reducers(state = INITIAL_STATE, action = {}){
+  return {
+    users: users(state.users, action)
+  };
+}
+                  </code></pre>
+                  </div>
+
+                  <pre class="fragment"><code data-trim data-noescape>
 function users(state = INITIAL_STATE.users, action = {}) {
   switch (action.type) {
     case Events.USER_ADDED:
@@ -532,10 +572,6 @@ function users(state = INITIAL_STATE.users, action = {}) {
   }
   return state;
 }
-
-export default combineReducers({
-  users
-});
                   </code></pre>
                 </section>
                 
@@ -603,12 +639,10 @@ class UserCreation extends Component {
   }
 }
                 </code></pre>                  
-                </section>
-                
-                <section>
-                <h2>Verwendung</h2>
-                
-                  <pre><code data-trim data-noescape>
+                  
+                <p>&nbsp;</p>
+                  
+                  <pre class="fragment"><code data-trim data-noescape>
 &lt;UserCreation submitUser={ user => dispatch(Actions.addUser(user)) } />                  
                   </code></pre>
                 </section>

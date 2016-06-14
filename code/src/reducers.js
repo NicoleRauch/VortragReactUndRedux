@@ -16,6 +16,9 @@ function users(state = INITIAL_STATE.users, action = {}) {
   return state;
 }
 
-export default combineReducers({
-  users
-});
+export default function(state = INITIAL_STATE, action = {}){
+  return {
+    users: users(state.users, action)
+  };
+};
+

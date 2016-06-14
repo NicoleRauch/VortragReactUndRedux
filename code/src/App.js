@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
 
+import HelloWorld from "./HelloWorld";
 import UserList from "./UserList";
 import UserCreation from "./UserCreation";
 import * as Actions from "./Actions";
@@ -12,6 +13,7 @@ export class AppComponent extends Component {
 
     return (
       <div>
+        <HelloWorld />
         <UserList users={users} />
         <UserCreation submitUser={user => dispatch(Actions.addUser(user))}
         />
