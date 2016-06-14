@@ -348,7 +348,7 @@ class User extends Component {
 
                 <pre><code data-trim data-noescape>
 &lt;ul>
-  { users.<mark>map((user, index)</mark> => &lt;User user={user} key={"user_" + index} /><mark>)</mark> }
+  { users.<mark>map(</mark>(user, index) => &lt;User user={user} key={"user_" + index} /><mark>)</mark> }
 &lt;/ul>
                 </code></pre>
               </section>
@@ -676,14 +676,16 @@ class UserCreation extends Component {
                     <img style="width:80%;" src="../logos/German.png"/>
                   </div>
                   <div style="flex:3;">
-                    <div style="font-family: Lato, monospace; font-weight:300; text-align:left;">@NicoleRauch</div>
-                    <div style="font-family: Lato, monospace; font-weight:300; text-align:left;">info@nicole-rauch.de</div>
-                    <div style="font-family: Lato, monospace; font-weight:300; text-align:left;margin-bottom:14px;">http://www.nicole-rauch.de</div>
+                    <div style="font-family: Lato; font-weight:300; text-align:left;">@NicoleRauch</div>
+                    <div style="font-family: Lato; font-weight:300; text-align:left;">info@nicole-rauch.de</div>
+                    <div style="font-family: Lato; font-weight:300; text-align:left;margin-bottom:14px;">http://www.nicole-rauch.de</div>
                   </div>
                   
                 </div>
                 <div style="font-family: Lato, monospace; font-weight:300; text-align:left;margin-top:38px;">https://github.com/NicoleRauch/VortragReactUndRedux</div>
-                
+
+                <div style="font-family: Lato; font-weight:300; text-align:left;margin-top:38px;">Ganztägiger Workshop zu React und Redux</div>
+
               </section>
               
               
