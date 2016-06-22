@@ -13,12 +13,12 @@ export default class extends Component {
       <div>
         <h3>New User</h3>
         <div>
-          <label>First Name:</label>
-          <input type="string" ref={(c) => this.inputs.firstName = c}/>
+          <label>Dein Vorname: </label>
+          <input type="string" ref={c => this.inputs.firstName = c}/>
         </div>
         <div>
-          <label>Last Name:</label>
-          <input type="string" ref={(c) => this.inputs.lastName = c}/>
+          <label>Last Name: </label>
+          <input type="string" ref={c => this.inputs.lastName = c}/>
         </div>
         <div>
           <button onClick={() => {
