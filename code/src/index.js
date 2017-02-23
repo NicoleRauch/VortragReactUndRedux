@@ -19,10 +19,14 @@ import App from "./App";
 
 import reducers from './reducers'
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(reducers,
-  applyMiddleware(
-    createLogger()
-  )
+    composeEnhancers(
+        applyMiddleware(
+            createLogger()
+        )
+    )
 );
 
 ReactDOM.render(
