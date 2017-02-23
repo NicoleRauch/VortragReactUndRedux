@@ -25,12 +25,12 @@ const store = createStore(reducers,
   )
 );
 
- ReactDOM.render(
- <Provider store={store}>
- <App />
- </Provider>
- , document.getElementById("start")
- );
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById("start")
+);
 
  */
 
